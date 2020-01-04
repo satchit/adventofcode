@@ -1,0 +1,48 @@
+diff --git a/day7.py b/day7.py
+index 3a7ec08..f450e63 100644
+--- a/day7.py
++++ b/day7.py
+@@ -40,25 +40,28 @@ def part2():
+             itertools.chain([lambda: p[4]], itertools.cycle([amp4.get_output])),
+             "vm5")
+         last_output = None
+-        while True:
+-            amp1.run()
+-            amp2.run()
+-            amp3.run()
+-            amp4.run()
+-            amp5.run()
+-            amp1.append_inputs(itertools.cycle([amp5.get_output]))
+-            output = amp5.get_output()
+-            print output
+-            if output == last_output:
+-                break
+-            last_output = output
+-            if max_output is None or output > max_output:
+-                max_output = output
++        try:
++            while True:
++                amp1.run()
++                amp2.run()
++                amp3.run()
++                amp4.run()
++                amp5.run()
++                amp1.append_inputs(itertools.cycle([amp5.get_output]))
++                output = amp5.get_output()
++                print output
++                if output == last_output:
++                    break
++                last_output = output
++                if max_output is None or output > max_output:
++                    max_output = output
++        except:
++            pass
+             
+     return max_output
+ 
+ if __name__ == '__main__':
+-    print part2()
++    print part1()
+         
+         
+     
