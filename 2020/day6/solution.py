@@ -20,7 +20,7 @@ def part1(groups):
 def part2(groups):
     total = 0
     return sum(
-        len(functools.reduce(set.intersection, [set(answer) for answer in group])) 
+        len(functools.reduce(set.intersection, map(set, group))) 
         for group in groups)
         
 
